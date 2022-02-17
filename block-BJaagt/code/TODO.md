@@ -28,7 +28,7 @@ console.log(useranme); // because of this has a block scope.
 if (true) {
   let username = 'Arya';
 }
-console.log(useranme); // because its not defined as global. 
+console.log(useranme); // because its not defined as global. beacuse tey not access behand the block scope.
 ```
 
 4. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
@@ -37,7 +37,7 @@ console.log(useranme); // because its not defined as global.
 if (true) {
   var username = 'Arya';
 }
-console.log(useranme); // 
+console.log(useranme); // Arya
 ``` because its not defined as global. 
 ```
 
@@ -48,7 +48,7 @@ let username = 'John';
 if (true) {
   var username = 'Arya';
 }
-console.log(useranme); // the veriable is alredy declear.
+console.log(useranme); // jhon
 ```
 
 6. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
@@ -58,7 +58,7 @@ let username = 'John';
 if (true) {
   let username = 'Arya';
 }
-console.log(useranme); // has already been declared
+console.log(useranme); // Jhon
 ```
 
 7. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
@@ -69,7 +69,7 @@ function sayHello() {
   let username = 'Arya';
 }
 sayHello();
-console.log(useranme); // has already been declared
+console.log(useranme); // jhon
 ```
 
 8. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
@@ -87,5 +87,5 @@ console.log(i, 'Second'); // 10
 for (let i = 0; i < 10; i++) {
   console.log(i, 'First'); // 0123456789
 }
-console.log(i, 'Second'); // 10
+console.log(i, 'Second'); // i is not defined
 ```
