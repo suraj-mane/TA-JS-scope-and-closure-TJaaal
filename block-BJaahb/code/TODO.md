@@ -10,7 +10,7 @@ function outer() {
   return inner;
 }
 let getSum = outer();
-let num = getSum();
+let num = getSum(); // 30
 ```
 
 2.
@@ -28,10 +28,10 @@ function getCounter() {
 
 let counter = getCounter();
 
-counter(); // output
-counter(); // output
-counter(); // output
-counter(); // output
+counter(); // 0
+counter(); // 1
+counter(); // 2
+counter(); // 3
 ```
 
 3. Create the execution context diagram
@@ -49,5 +49,5 @@ let tomato = makeColorChanger('tomato');
 blue();
 tomato();
 
-// What will be the background color after the execution of last line
+// undefined;
 ```
