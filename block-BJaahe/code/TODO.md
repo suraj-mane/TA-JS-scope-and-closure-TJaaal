@@ -4,7 +4,7 @@
 
 ```js
 function outer(str){
-  function sayHello(){
+  let sayHello = function(){
     alert(str);
   }
   return sayHello();
@@ -16,19 +16,19 @@ outer("suraj");
 
 ```js
 function delay(sec, cb){
-
+  return function(){
+    setTimeout(cb, ms);
+  }
 }
 ```
 
 3. Write a function with a closure. The first function should only take one argument, someone's last name, and return the inner function. The returned `inner` function should take one more argument, someone's first name. When inner function when called it should console.log both the first name and the last name with a space.
 
 ```js
-function lastName(name) {
-  let first = name;
-  function inner(n){
-    return name + n ;
-  }
-  inner();
+function lastName(ln) {
+  return function(fn){
+    console.log(`${fn} ${ln}`);
+  }  
 }
 
 let lastNameLee = lastName('lee'); // logs nothing
@@ -39,7 +39,7 @@ This function is useful in case you want to create name for multiple people with
 
 ```js
 function lastNameLee(name) {
-  return name +" "+ "Lee";
+  return name +" "+ "Lee";  
 }
 lastNameLee('Jane'); //logs 'Jane Lee'
 lastNameLee('Lynne'); //logs 'Lynne Lee'
@@ -49,11 +49,14 @@ lastNameLee('Lynne'); //logs 'Lynne Lee'
 
 ```js
 function storyWriter() {
+  let story = "";
   return {
-    add:function addWords(story) {
+    addWords: function(word) {
+      story += word
       return story;
     },
-    delete:function erase(){
+    erase: function(){
+      story = "";
       return "";
     }
   }
@@ -77,13 +80,14 @@ When `forEach` function is called it returns another function. When the returned
 
 ```js
 function forEach() {
-  function next(arr){
-    arr++;
+  let index = 0;
+  return function next(arr){
+    index ++ ;
+    return index;
   }
-  return next();
 }
 
-let next = [1, 2, 3, 4, 5];
+let next = forEach([1, 2, 3, 4, 5]);
 next(); // 1
 next(); // 2
 next(); // 3
@@ -97,11 +101,9 @@ The returned function accepts a string `prefix` and returns `prefix` and `title`
 
 ```js
 function addDesignation(title) {
-  let word = title;
-  function sales(line){
-    return word + line
-  } 
-  return;
+  return function (prefix) {
+    return `${prefix} ${title}`;
+  }
 }
 
 let sales = addDesignation('Salesman');
@@ -120,10 +122,16 @@ manager('Head'); // Head Manager
 
 ```js
 function changeSalary(num) {
-  let salery = num;
-  function (){
-    return :raise = 500 + num;
-    return :lower = 500 - num;
+  return {
+    raise: function(){
+      return `${num + 500}`;
+    },
+    lower: function(){
+      return `${num - 500}`;
+    },
+    current: function(){
+      return num;
+    }
   }
 }
 
@@ -142,16 +150,21 @@ arya.lower(); // 3500
 
 ```js
 function nameFactory(firstName, LastName) {
-  function getFullName(){
-    return firstName + LastName;
-    :setFirstName(){
-      return firstName + LastName;
-    }  
-    :setLastName(){
-      return firstName + LastName;
-    }  
+  return {
+    getFullName: function(){
+      return `${firstName} ${LastName}`;
+    },
+    setFirstName: function(nName){
+      let newFirstName = nName;
+      firstName = newFirstName;
+      return `${firstName} ${LastName}`;
+    },
+    setLastName: function(lName){
+      let newLastName = lName;
+      LastName = newLastName;
+      return `${firstName} ${LastName}`;
+    }
   }
-  return getFullName();
 }
 
 let arya = nameFactory('Arya', 'Stark');
@@ -166,11 +179,9 @@ The returned function accepts a string (children) and returns the children with 
 
 ```js
 function createTag(tag) {
-  let tags = tag;
-  function tagName(){
-    return `<${tags}>Hello World!</${tags}>`
+  return function(tags){
+    return `<${tag}>${tags}</${tag}>`;
   }
-  return tagName;
 }
 
 let bold = createTag('b');
