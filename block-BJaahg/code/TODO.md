@@ -10,9 +10,9 @@ const lastName = 'Stark';
 var knownAs = 'no one';
 
 console.log(
-  window.firstName,
-  window.lastName,
-  window.knownAs
+  window.firstName, // undefined
+  window.lastName, // undefined
+  window.knownAs  // "no one"
 );
 ```
 
@@ -27,40 +27,40 @@ function fullName(a, b) {
   return a + b;
 }
 
-console.log(window.fullName(firstName, lastName));
+console.log(window.fullName(firstName, lastName)); // Arya Stark becuse of function is gobal defined.
 ```
 
 3. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
-fucntion addOne(num){
+function addOne(num){
   return num + 1;
 }
 var one = addOne(0);
 var two = addOne(1);
-console.log(one, two);
+console.log(one, two); // 1 2 becuase var is used 
 ```
 
 4. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
 var one = addOne(0);
-fucntion addOne(num){
+function addOne(num){
   return num + 1;
 }
 var two = addOne(1);
-console.log(one, two);
+console.log(one, two); // 1 2 
 ```
 
 5. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
-console.log(addOne(0));
-fucntion addOne(num){
+console.log(addOne(0)); // 1
+function addOne(num){
   return num + 1;
 }
 var two = addOne(1);
-console.log(two);
+console.log(two);// 2 
 ```
 
 6. Make a Execution Context Diagram for the following JS and write the output.
@@ -71,7 +71,7 @@ const addOne = (num) => {
   return num + 1;
 };
 var two = addOne(1);
-console.log(two);
+console.log(two); //  beacuse of function is defined in const variable and first we define function then access.
 ```
 
 7. Make a Execution Context Diagram for the following JS and write the output.
@@ -82,7 +82,7 @@ const addOne = (num) => {
   return num + 1;
 };
 var two = addOne(1);
-console.log(two);
+console.log(two); //  beacuse of function is defined in const variable and first we define function then access
 ```
 
 8. What will be the output of the following
@@ -95,7 +95,7 @@ function isAwesome() {
   }
   console.log(awesome);
 }
-isAwesome();
+isAwesome(); // undefined 
 ```
 
 9. What will be the output of the following
@@ -108,7 +108,7 @@ function isAwesome() {
   }
   console.log(awesome);
 }
-isAwesome();
+isAwesome(); // true
 ```
 
 10. What will be the output of the following
@@ -121,7 +121,7 @@ function isAwesome() {
   }
   console.log(awesome);
 }
-isAwesome();
+isAwesome(); // undefined
 ```
 
 11. What will be the output of the following
@@ -135,7 +135,7 @@ function fullName(a, b) {
   return a + b;
 }
 const name = fullName(firstName, lastName);
-console.log(name);
+console.log(name); // AryaStrack
 ```
 
 12. Guess the output of the code below with a reason.
@@ -146,7 +146,7 @@ function sayHello() {
 }
 sayHello();
 
-console.log(name);
+console.log(name); // becuase of let keyword is used for variable.
 ```
 
 13. Guess the output of the code below with a reason.
@@ -155,7 +155,7 @@ console.log(name);
 if (true) {
   var name = 'Arya Stark';
 }
-console.log(name);
+console.log(name); // Arya Stark because var key word is used.
 ```
 
 14. Guess the output of the code below with a reason.
@@ -164,7 +164,7 @@ console.log(name);
 if (true) {
   let name = 'Arya Stark';
 }
-console.log(name);
+console.log(name); // Arya Strack let key word is used.
 ```
 
 15. Guess the output of the code below with a reason.
@@ -173,7 +173,7 @@ console.log(name);
 for (var i = 0; i < 20; i++) {
   //
 }
-console.log(i);
+console.log(i); // 20 becasue var key word is used this is global variable.
 ```
 
 16. Guess the output of the code below with a reason.
@@ -182,7 +182,7 @@ console.log(i);
 for (let i = 0; i < 20; i++) {
   //
 }
-console.log(i);
+console.log(i); // i is not defined.
 ```
 
 17. Guess the output and the reason behind that.
@@ -194,7 +194,7 @@ function sample() {
   }
   console.log(username);
 }
-sample();
+sample(); // Jhon Snow is globel variable is used 
 ```
 
 18. Guess the output and the reason behind that.
@@ -206,7 +206,7 @@ function sample() {
   }
   console.log(username);
 }
-sample();
+sample(); // username is not defined 
 ```
 
 19. Guess the output and the reason behind that.
@@ -220,7 +220,7 @@ function sample() {
   }
   console.log(username, 'second');
 }
-sample();
+sample(); // John Snow John Snow second var keyword is used for declear.
 ```
 
 20. Guess the output and the reason behind that.
@@ -234,7 +234,7 @@ function sample() {
   }
   console.log(username, 'second');
 }
-sample();
+sample(); // John Snow first Arya Stark second 
 ```
 
 21. Guess the output and the reason behind that.
@@ -247,7 +247,7 @@ function sample(...args) {
   }
 }
 
-sample('First', 'Second', 'Third');
+sample('First', 'Second', 'Third'); // Hello I am First Hello I am Second Hello I am Third  becasue in same scope 
 ```
 
 22. Guess the output and the reason behind that.
@@ -260,7 +260,7 @@ function sample(...args) {
   }
 }
 
-sample('First', 'Second', 'Third');
+sample('First', 'Second', 'Third'); // Hello I am First Hello I am Second Hello I am Third  becasue in same scope 
 ```
 
 23. Guess the output and the reason behind that.
@@ -272,8 +272,8 @@ if (true) {
   };
   console.log(username, 'First');
   let username = 'Hello World!';
-  myFunc();
-}
+  myFunc(); 
+} // In first function  we can not access username because let keyword is used. and first they not define .
 ```
 
 24. Guess the output and the reason behind that.
@@ -289,7 +289,7 @@ function outer() {
   inner();
 }
 
-outer();
+outer(); // I love this movie called MAD MAX: FURY ROAD.
 ```
 
 25. Guess the output and the reason behind that.
@@ -306,7 +306,7 @@ function outer() {
   inner();
 }
 
-outer();
+outer(); // I love this movie called BEFORE SUNRISE becase of movie is defined in same scope
 ```
 
 26. Guess the output and the reason behind that.
@@ -326,7 +326,7 @@ function outer() {
   }
   inner();
 }
-outer();
+outer(); // I love this movie called GONE GIRL becase of movie is defined in same scope
 ```
 
 30. Using reduce find the final value when the initial value passed is `100`. You have to pass the output of one function into the input of next function in the array `allFunctions` starts with `addOne` ends with `half`.
