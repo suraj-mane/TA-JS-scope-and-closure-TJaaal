@@ -4,7 +4,7 @@
 
 ```js
 function multiplyBy(num){
-  return function double(n){
+  return function(n) {
     return num * n;
   }
 }
@@ -17,8 +17,8 @@ const final = double(15); // final should be 30
 
 ```js
 function fullname(lname){
-  return function name(fname){
-    return lname + fname;
+  return function(fname){
+    return `${lname} ${fname}`;
   }
 }
 
@@ -31,10 +31,10 @@ const final = name('Smith'); // final should be "Will Smith"
 ```js
 function isInBetween(a, b) {
   return function isChild(c){
-    if(a == c && b == c){
-      return true;
+    if(a >b ){
+      return c > b && c < a;
     }
-    return false;
+    return c < b && c > a;
   }
 }
 
@@ -49,7 +49,7 @@ isChild(103); // false
 ```js
 function letsWishThem(greeting) {
   return function (str){
-    return greeting + str;
+    return `${greeting} ${str}`;
   }
 }
 
@@ -62,9 +62,9 @@ callWithHello('How Are You?'); // Hello How Are You?
 5. Write a function called `addGame` which takes a string (name of the game) and the current score. It returns a function calling that will increment the score by one and print something like `Score of Basketball is 1`.
 
 ```js
-function addGame(gameName , a = 0) {
+function addGame(gameName , a) {
   return function(){
-    return ` Your score of ${gameName} is ${a}`;
+    return ` Your score of ${gameName} is ${a ++}`;
   }
 }
 
@@ -82,13 +82,17 @@ cricket(); // Your score of Cricket is 2
 ```js
 function getCard(suit) {
   return function(){
-    return `Card is: ${suit}`;
+    let values = [2,3,4,5,6,7,8,9,10,"J", "Q", "K", "A"];
+    function getRandomNumber(){
+      return Math.floor(Math.random() * values.length);
+    }
+    return `Card is: ${values[getRandomNumber()]} ${suit}`;
   }
 }
 
 // Output
 const randomClub = getCard('Club');
-randomClub(); // Card is: 6 Club
+ // Card is: 6 Club
 randomClub(); // Card is: A Club
 const randomSpade = getCard('Spade');
 randomSpade(); // Card is: 6 Spade
