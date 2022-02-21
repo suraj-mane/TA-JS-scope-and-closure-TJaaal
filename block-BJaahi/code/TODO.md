@@ -61,10 +61,27 @@ let message = sayHello(username);
 var nextMessage = sayHello('Test');
 ```
 
-<!-- Answer -->
-
 ```js
-// Your code goes here
+// Declaration Phase 
+var username = 'undefined';
+let number; 
+
+function sayHello(name) {
+  return `Hello ${name}`;
+}
+
+let message;
+var nextMessage = 'undefined';
+
+// Execution Phase
+console.log(username, numbers);
+
+var username = 'Arya';
+let number = 21;
+
+let message = sayHello(username);
+var nextMessage = sayHello('Test');
+
 ```
 
 3.
@@ -85,7 +102,27 @@ var nextMessage = sayHello('Test');
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// Declaration Phase 
+let username;
+let number;
+
+let sayHello;
+
+let message;
+var nextMessage = 'undefined';
+
+// Execution Phase
+console.log(username, numbers);
+let username = 'Arya';
+let number = 21;
+
+let sayHello = function (name) {
+  return `Hello ${name}`;
+};
+
+let message = sayHello(username);
+var nextMessage = sayHello('Test');
+
 ```
 
 4.
@@ -107,7 +144,30 @@ var nextMessage = sayHello('Test');
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// declaration phase 
+let username;
+
+let number;
+let message;
+
+let sayHello;
+
+var nextMessage = 'undefined';
+
+// Execution phase
+
+let username = 'Arya';
+console.log(username, numbers);
+
+let number = 21;
+let message = sayHello(username);
+
+let sayHello = function (name) {
+  return `Hello ${name}`;
+};
+
+var nextMessage = sayHello('Test');
+
 ```
 
 5.
@@ -122,7 +182,15 @@ let age = 21;
 <!-- Answer -->
 
 ```js
-// Your code goes here
+var name = 'undefined';
+let age;
+
+// Execution phase
+
+console.log(name);
+console.log(age);
+var name = 'Lydia';
+let age = 21;
 ```
 
 6.
@@ -141,7 +209,13 @@ sayHi();
 <!-- Answer -->
 
 ```js
-// Your code goes here
+function sayHi(name) {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+}
+
 ```
 
 7.
@@ -159,7 +233,23 @@ function sayHi(name) {
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// Decleartion Phase
+function sayHi(name) {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+}
+
+// Execution Phase
+
+sayHi();
+function sayHi(name) {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+}
 ```
 
 8.
@@ -177,7 +267,18 @@ let sayHi = function sayHi(name) {
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// Decleartion Phase
+let satHi;
+
+// Execution phase 
+sayHi();
+let sayHi = function sayHi(name) {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+};
+
 ```
 
 9.
@@ -192,7 +293,17 @@ let num2 = 30;
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// Delcaration Phase
+
+let num1;
+var sum = 'undefined';
+let num2;
+
+// Execution Phase 
+let num1 = 21;
+console.log(sum);
+var sum = num1 + num2;
+let num2 = 30;
 ```
 
 10.
@@ -216,7 +327,30 @@ let sum = add(num1, num2, 4, 5, 6);
 <!-- Answer -->
 
 ```js
-// Your code goes here
+var num1 = 'undefined';
+let sum2;
+
+let add;
+
+let num2;
+
+let sum;
+
+// declartion Phase 
+
+var num1 = 21;
+
+let sum2 = addAgain(num1, num2, 4, 5, 6);
+
+let add = (a, b, c, d, e) => {
+  return a + b + c + d + e;
+};
+function addAgian(a, b) {
+  return a + b;
+}
+let num2 = 200;
+
+let sum = add(num1, num2, 4, 5, 6);
 ```
 
 11.
@@ -237,7 +371,15 @@ let add = (a, b) => {
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// decleration Phase 
+function test(a) {
+  let num1 = 21;
+  return add(a, num1);
+}
+
+let sum;
+let add;
+
 ```
 
 12.
@@ -258,5 +400,28 @@ function add(a, b) {
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// declaration Phase 
+
+function test(a) {
+  let num1 = 21;
+  return add(a, num1);
+}
+
+let sum;
+
+function add(a, b) {
+  return a + b;
+}
+// Excution Phase 
+function test(a) {
+  let num1 = 21;
+  return add(a, num1);
+}
+
+let sum = test(100);
+
+function add(a, b) {
+  return a + b;
+}
+
 ```
