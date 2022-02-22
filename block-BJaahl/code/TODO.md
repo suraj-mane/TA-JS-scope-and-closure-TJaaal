@@ -2,7 +2,13 @@
 
 ```js
 function once(cb) {
-  return cb();
+  let isCalled = false;
+  return function() {
+    if(!isCalled){
+      cb();
+      isCalled = true;
+    }
+  }
 }
 
 // TEST
@@ -18,7 +24,13 @@ log(); // return undefinde (can't be called twice)
 
 ```js
 function once(cb, str) {
-  return `${cb} + ${str}`;
+   let isCalled = false;
+  return function() {
+    if(!isCalled){
+      cb(str);
+      isCalled = true;
+    }
+  }
 }
 
 // TEST
@@ -34,10 +46,14 @@ log(); // return undefinde (can't be called twice)
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
 
 ```js
-function once(cb) {
-  return cb.reduce((acc, cv) => {
-    return acc + cv;
-  });
+function once(cb, ...rest) {
+  let isCalled = false;
+  return function() {
+    if(!isCalled){
+      cb(...rest);
+      isCalled = true;
+    }
+  }
 }
 
 // TEST
@@ -50,6 +66,15 @@ log(); // return undefinde (can't be called twice)
 
 ```js
 function nTimes(cb, times, ...rest) {
+  let numberofTimesCalled = 0;
+  return function() {
+    if(numberOfTimesCalled >= times){
+      alert(`${times}`);
+    } else {
+      cb(...reset);
+      numberOfTimesCalled = numberOfTimesCalled + 1;
+    }
+  }
 }
 
 // TEST
