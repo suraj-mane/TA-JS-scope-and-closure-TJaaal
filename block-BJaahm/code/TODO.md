@@ -1,7 +1,10 @@
 1. Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs. You can only use reduce method to do this.
 
 ```js
-function intersection(arrays) {}
+function intersection(arr) {
+   let [a,...rest] = arr;
+  return a.filter(v=> rest.every(val => val.includes(v)))
+}
 
 // Test
 console.log(
@@ -16,7 +19,10 @@ console.log(
 2. Construct a function `union` that compares input arrays and returns a new array that contains all elements. If there are duplicate elements, only add it once to the new array. Preserve the order of the elements starting from the first element of the first input array. You can only use reduce method to do this.
 
 ```js
-function union(arrays) {}
+function union(arrays) {
+  return reduce(arrays, (result, array) => 
+  filter(result, e => array.includes(e)));
+}
 
 // Test
 console.log(
