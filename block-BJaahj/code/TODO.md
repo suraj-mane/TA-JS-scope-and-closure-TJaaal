@@ -3,7 +3,18 @@
 1. Construct a function `objOfMatches` that accepts two arrays and a callback. `objOfMatches` will build an object and return it. To build the object, `objOfMatches` will test each element of the first array using the callback to see if the output matches the corresponding element (by index) of the second array. If there is a match, the element from the first array becomes a key in an object, and the element from the second array becomes the corresponding value.
 
 ```js
-function objOfMatches(array1, array2, callback) {}
+function objOfMatches(array1, array2, callback) {
+    var obj = {};
+
+    for(let i = 0; i < array1.length; i++) {
+        for (let j = 0; j < array2.length; j++) {
+            if (callback(array1[i]) === array2[j]) {                
+                obj.array1[i] = array2[j];
+            }
+        }
+    }
+  return obj;
+}
 
 // TEST
 console.log(
@@ -20,7 +31,17 @@ console.log(
 2. Construct a function `multiMap` that will accept two arrays: an array of values and an array of callbacks. `multiMap` will return an object whose keys match the elements in the array of values. The corresponding values that are assigned to the keys will be arrays consisting of outputs from the array of callbacks, where the input to each callback is the key.
 
 ```js
-function multiMap(arrVals, arrCallbacks) {}
+function multiMap(arrVals, arrCallbacks) {
+
+  let newObj = {};
+
+  for(let i=0; i < arrVals.length; i++){
+    let element = arrVals[i];
+
+    newObj[element] = arrCallbacks[i](element);
+  }
+  return newObj;
+}
 
 // TEST
 console.log(
@@ -50,7 +71,16 @@ To build the object, `objOfMatchesWithArray` will test each element of the first
 The final output from the third array will be matched agains the same indexed element of second array. If there is a match, the element from the first array becomes a key in an object, and the element from the second array becomes the corresponding value.
 
 ```js
-function objOfMatchesWithArray(array1, array2, callback) {}
+function objOfMatchesWithArray(array1, array2, callback) {
+
+  let newObj = {};
+
+  for(let i = 0; i < array1.length; i++){
+    for(let j = 0; j < array2.length; j++){
+      
+    }
+  }
+}
 
 // TEST
 console.log(
